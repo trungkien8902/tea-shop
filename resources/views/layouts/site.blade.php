@@ -57,22 +57,22 @@
         </ul>
         <ul class="navbar_user">
           <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-          <li><a href="{{route('customer.login')}}"><i class="fa fa-user" aria-hidden="true"></i></a></li>
           <li class="checkout">
-            <a href="#">
+            <a href="{{route('cart.view')}}">
               <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-              <span id="checkout_items" class="checkout_items">2</span>
+              <span id="checkout_items" class="checkout_items">{{$cart->total_quality}}</span>
             </a>
           </li>
           <li>
             <a href="#" class="dropdown-item">
-            </a>
-          </li>
-          <li>
-            <a href="{{route('logout')}}" id="logout" class="dropdown-item" onclick="return confirm('Bạn có chắc không?')">
-              <i style="padding-right: 10px;" class="fas fa-user"></i> Logout
-            </a>
-          </li>
+              </a>
+            </li>
+            @if(Auth::guard('cus')->check())
+            <li><a href="">{{Auth::guard('cus')->user()->name}}</a></li>
+            <li><a href="{{route('home.logout')}}" id="logout" class="dropdown-item" onclick="return confirm('Bạn có chắc không?')">Logout</a></li>
+            @else
+            <li><a href="{{route('home.login')}}"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+            @endif
         </ul>
         <div class="hamburger_container">
           <i class="fa fa-bars" aria-hidden="true"></i>

@@ -29,27 +29,3 @@
 </form>
 
 @stop()
-
-@section('js')
-<script>
-    $('#formAdd').on('submit', function(ev) {
-        ev.preventDefault();
-        let formData = $('#formAdd').serialize();
-        $.post('http://localhost/tea-shop/public/api/category', formData, function(res) {
-            if (res.status_code == 404) {
-                Swal.fire(
-                    'Error!',
-                    res.message,
-                    'error'
-                )
-            } else {
-                Swal.fire(
-                    'Success!',
-                    res.message,
-                    'success'
-                )
-            }
-        });
-    })
-</script>
-@stop()

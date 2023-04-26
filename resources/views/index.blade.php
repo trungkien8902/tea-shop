@@ -113,8 +113,8 @@
       <!-- top product -->
         @foreach($top_product as $tp)
         <div class="u-align-center u-container-style u-list-item u-repeater-item">
-          <a style="text-decoration: none; color: #333" href="{{route('home.product_detail')}}" class="u-container-layout u-similar-container u-container-layout-1">
-            <img src="{{$tp->image}}" class="u-image u-image-circle u-image-2" data-image-width="281" data-image-height="281"></img>
+          <a style="text-decoration: none; color: #333" href="{{route('home.view', ['id'=>$tp->id])}}" class="u-container-layout u-similar-container u-container-layout-1">
+            <img src="upload/{{$tp->image}}" class="u-image u-image-circle u-image-2" data-image-width="281" data-image-height="281"></img>
             <h4 class="u-custom-font u-text u-text-2">{{$tp->name}}</h4>
           </a>
         </div>

@@ -8,9 +8,9 @@
     data-image-height="2442">
     <div class="u-container-style u-group u-shape-rectangle u-group-1">
       <div class="u-container-layout u-container-layout-1">
-        <h1 class="u-custom-font u-text u-text-default u-text-1">Trà Shan Tuyết</h1><span
+        <h1 class="u-custom-font u-text u-text-default u-text-1">{{$model->name}}</h1><span
           class="u-file-icon u-icon u-text-custom-color-5 u-icon-1"><img src="{{url('assets')}}/images/992001-7c0062d0.png" alt=""></span>
-        <p class="u-custom-font u-heading-font u-text u-text-2">50.000&nbsp;<span style="font-size: 1.5rem;">VND</span>
+        <p class="u-custom-font u-heading-font u-text u-text-2">{{$model->price}}&nbsp;<span style="font-size: 1.5rem;">VND</span>
         </p><span class="u-file-icon u-icon u-text-custom-color-2 u-icon-2"><img src="{{url('assets')}}/images/2767220-195933c1.png"
             alt=""></span>
         <div
@@ -107,12 +107,8 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
         </div><span class="u-file-icon u-icon u-text-custom-color-2 u-icon-3"><img src="{{url('assets')}}/images/2516688-352f2e1b.png"
             alt=""></span>
         <p class="u-heading-font u-text u-text-3">200g</p>
-        <p class="u-custom-font u-text u-text-4"> Trà Shan Tuyết (Chè Shan Tuyết) hay còn được gọi là trà tuyết. Đây là
-          loại trà đặc sản của các đồng bào tộc người Tày, Giao, Mông và là đặc sản của các tỉnh như Hà Giang, Điện
-          Biên, Lào Cai. <br>
-          <br>Cây trà Shan Tuyết cổ thụ rất lớn, có khi vài người lớn vòng tay ôm. Mọc ở trên núi cao hơn 1200m, quanh
-          năm mây mù và lạnh. Sự chênh lệch nhiệt độ giữa ngày và đêm là rất lớn, chính bởi có điều kiện tự nhiên thú vị
-          như vậy nên đó là nét độc đáo tạo ra một hương vị trà shan tuyết cổ thụ thơm ngon&nbsp;
+        <p class="u-custom-font u-text u-text-4"> {{$model->description}}<br>
+          <br>{{$model->contents}}&nbsp;
         </p>
       </div>
     </div>

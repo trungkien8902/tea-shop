@@ -70,7 +70,12 @@
                     <div class="shop-widget catagory mb-50">
                         <h4 class="widget-title">Loại sản phẩm</h4>
                         <div class="widget-desc" id="list-cates">
-
+                            @foreach($category as $cat) 
+                            <div class="custom-control custom-checkbox d-flex align-items-center mb-2">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <a href="" class="custom-control-label" for="customCheck1">{{$cat->name}}</a>
+                            </div>
+                            @endforeach
                         </div>
                     </div>
 
@@ -126,16 +131,39 @@
                     <div class="row" id="list-product">
 
                         <!-- Single Product Area -->
+                        @foreach($product as $p)
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="single-product-area mb-50">
+                                <div class="product-img">
+                                    <a href="">
+                                        <img height="200px" src="{{$p->image}}" alt="">
+                                        <img height="200px" src="upload/{{$p->image}}" alt="">
+                                    </a>
+                                    <div class="product-meta d-flex">
+                                        <a href="#" class="wishlist-btn"><i class="fa-heart"></i></a>
+                                        <a href="{{route('cart.add', ['id' => $p -> id])}}" class="add-to-cart-btn">Add to cart</a>
+                                        <a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>
+                                    </div>
+                                </div>
+                                <div class="product-info mt-15 text-center">
+                                    <a href="{{route('home.view', ['id'=>$p->id])}}" style="text-decoration: none;">
+                                        <p style="font-size: 20px; padding-bottom: 10px;">{{$p->name}}</p>
+                                    </a>
+                                    <h6>{{$p->price}} VND</h6>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
                     </div>
 
                     <!-- Pagination -->
-                    <nav aria-label="Page navigation">
+                    <!-- <nav aria-label="Page navigation">
                         <ul class="pagination">
                             <li class="page-item"><a class="page-link" href="#">1</a></li>
                             <li class="page-item"><a class="page-link" href="#">2</a></li>
                             <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
                         </ul>
-                    </nav>
+                    </nav> -->
                 </div>
             </div>
         </div>
@@ -144,57 +172,4 @@
 <!-- ##### Shop Area End ##### -->
 
 
-@stop()
-
-@section('js')
-<script>
-    $.get('http://localhost/tea-shop/public/api/category', function(res){
-        if(res.status_code == 200)
-        {
-            let cate = res.data;
-            let _li = '';
-            cate.forEach(function(item){
-                _li += '<div class="custom-control custom-checkbox d-flex align-items-center mb-2">'+
-                            '<input type="checkbox" class="custom-control-input" id="customCheck1">'+
-                            '<label class="custom-control-label" for="customCheck1">'+item.name+'</label>'+
-                        '</div>'
-            });
-            $("#list-cates").html(_li);
-        }
-
-    });
-
-    $.get('http://localhost/tea-shop/public/api/product', function(res){
-        if(res.status_code == 200)
-        {
-            let product = res.data;
-            let _li = '';
-            product.forEach(function(item){
-                _li += '<div class="col-12 col-sm-6 col-lg-4">'+
-                            '<div class="single-product-area mb-50">'+
-                                '<div class="product-img">'+
-                                    '<a href="http://localhost/tea-shop/public/product_detail?id='+item.id+'">'+
-                                        '<img height="200px" src="'+item.image+'" alt="">'+
-                                    '</a>'+
-                                    '<div class="product-meta d-flex">'+
-                                        '<a href="#" class="wishlist-btn"><i class="fa-heart"></i></a>'+
-                                        '<a href="cart.html" class="add-to-cart-btn">Add to cart</a>'+
-                                        '<a href="#" class="compare-btn"><i class="arrow_left-right_alt"></i></a>'+
-                                    '</div>'+
-                                '</div>'+
-                                '<div class="product-info mt-15 text-center">'+
-                                    '<a href="http://localhost/tea-shop/public/product_detail?id='+item.id+'" style="text-decoration: none;">'+
-                                        '<p style="font-size: 20px; padding-bottom: 10px;">'+item.name+'</p>'+
-                                    '</a>'+
-                                    '<h6>'+item.price+' VND</h6>'+
-                                '</div>'+
-                            '</div>'+
-                        '</div>'
-            });
-            $("#list-product").html(_li);
-            // $("#product_detail").href({{route('home.product')}});
-        }
-
-    });
-</script>
 @stop()

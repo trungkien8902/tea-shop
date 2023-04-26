@@ -2,7 +2,7 @@
 @section('title', 'Edit Category')
 @section('main')
 
-<form method="POST" action="" id="formUpdate" role="form">
+<form method="POST" action="{{route('category.update', $category->id)}}" id="formUpdate" role="form">
     @csrf @method('PUT')
     <input type="text" hidden name="id" value="{{$category->id}}">
     <div class="mb-3">
@@ -28,28 +28,4 @@
     </div>
 </form>
 
-@stop()
-
-@section('js')
-<script>
-    $('#formUpdate').on('submit', function(ev) {
-        ev.preventDefault();
-        let formData = $('#formAdd').serialize();
-        $.put('http://localhost/tea-shop/public/api/category', formData, function(res) {
-            if (res.status_code == 404) {
-                Swal.fire(
-                    'Error!',
-                    res.message,
-                    'error'
-                )
-            } else {
-                Swal.fire(
-                    'Success!',
-                    res.message,
-                    'success'
-                )
-            }
-        });
-    })
-</script>
 @stop()

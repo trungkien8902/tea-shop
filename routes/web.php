@@ -22,22 +22,13 @@ Route::get('/product', 'App\Http\Controllers\HomeController@product' ) -> name('
 Route::get('/about', 'App\Http\Controllers\HomeController@about' ) -> name('home.about');
 Route::get('/news', 'App\Http\Controllers\HomeController@news' ) -> name('home.news');
 Route::get('/contact', 'App\Http\Controllers\HomeController@contact' ) -> name('home.contact');
-Route::get('/product_detail', 'App\Http\Controllers\HomeController@product_detail' ) -> name('home.product_detail');
+Route::get('/product_detail/{id}', 'App\Http\Controllers\HomeController@view' ) -> name('home.view');
+Route::get('/login', 'App\Http\Controllers\HomeController@login') -> name('home.login');
+Route::post('/login', 'App\Http\Controllers\HomeController@post_login') -> name('home.login');
+Route::get('/logout', 'App\Http\Controllers\HomeController@logout') -> name('home.logout');
+Route::get('/cart', 'App\Http\Controllers\CartController@view') -> name('cart');
 
 
-/**
- * GET => customer.index => danh sách
- * GET => customer.create => form thêm mới
- * POST => customer.store => khi submit form thêm mới
- * GET => customer.show => xem chi tiết
- * GET => customer.edit => hiển thị form edit
- * PUT => customer.update => khi submit form edit
- * DELETE => customer.destroy => khi xóa
- */
-// Route::group(['prefix' => 'auth', 'namespace' => 'App\Http\Controllers\API'], function(){
-//     Route::get('/', 'App\Http\Controllers\API\AuthController@view_login') -> name('login');
-//     Route::get('/register', 'App\Http\Controllers\API\AuthController@view_register') -> name('register');
-// });
 
 Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\Admin' ,'middleware' => 'auth'], function(){
     Route::get('/', 'App\Http\Controllers\Admin\AdminController@dashboard') -> name('admin.dashboard');
@@ -52,17 +43,19 @@ Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\Admin' ,
     ]);
 });
 
+Route::get('category', 'App\Http\Controllers\Admin\CategoryController@index') -> name('index');
 Route::get('admin/login', 'App\Http\Controllers\Admin\AdminController@login') -> name('login');
 Route::post('admin/login', 'App\Http\Controllers\Admin\AdminController@post_login') -> name('login');
 Route::post('/{id}', 'App\Http\Controllers\HomeController@view') -> name('view');
 
-Route::get('auth/login', 'App\Http\Controllers\API\AuthController@view_login') -> name('auth.login');
-Route::get('auth/register', 'App\Http\Controllers\API\AuthController@view_register') -> name('auth.register');
+Route::group(['prefix' => 'cart'], function() {
+    Route::get('view', 'App\Http\Controllers\CartController@view')->name('cart.view');
+    Route::get('add/{id}', 'App\Http\Controllers\CartController@add')->name('cart.add');
+    Route::get('remove/{id}', 'App\Http\Controllers\CartController@remove')->name('cart.remove');
+    Route::get('update/{id}', 'App\Http\Controllers\CartController@update')->name('cart.update');
+    Route::get('clear', 'App\Http\Controllers\CartController@clear')->name('cart.clear');
+});
 
-Route::get('customer/login', 'App\Http\Controllers\CustomerController@view_login') -> name('customer.login');
-Route::get('customer/register', 'App\Http\Controllers\CustomerController@view_register') -> name('customer.register');
-Route::post('customer/login', 'App\Http\Controllers\CustomerController@login') -> name('customer.login');
-Route::post('customer/register', 'App\Http\Controllers\CustomerController@register') -> name('customer.register');
 
 
 

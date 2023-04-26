@@ -46,11 +46,6 @@ return [
             'provider' => 'customer',
         ],
 
-        'cus_api' => [
-            'driver' => 'token',
-            'provider' => 'customer',
-        ],
-
         'api' => [
             'driver' => 'passport',
             'provider' => 'users',

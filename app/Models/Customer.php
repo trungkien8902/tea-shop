@@ -4,11 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Customer extends Model
+
+class Customer extends Authenticatable
 {
     use HasFactory;
-    protected $guarded = ['id'];
+    // protected $guarded = ['id'];
     protected $table = 'customer';
     protected $filltable = [
         'name',
@@ -20,18 +22,26 @@ class Customer extends Model
 
     // JOIN 1 - 1
 
-    // JOIN 1-n
-    public function orders()
-    {
-        return $this->hasMany(Order::class, 'id_customer', 'id');
-    }
+    // // JOIN 1-n
+    // public function orders()
+    // {
+    //     return $this->hasMany(Order::class, 'id_customer', 'id');
+    // }
 
     //Thêm localScope
-    public function scopeSearch($query)
-    {
-        if($key = request()->key) {
-            $query = $query->where('name', 'like', '%'.$key.'%');
-        }
-        return $query;
+    // public function scopeSearch($query)
+    // {
+    //     if($key = request()->key) {
+    //         $query = $query->where('name', 'like', '%'.$key.'%');
+    //     }
+    //     return $query;
+    // }
+    protected $hidden = [
+        'password',
+        'remember_reset_tokens',
+    ];
+    
+    public function getAuthPassword() {
+        return bcrypt($this->password);
     }
 }

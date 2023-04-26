@@ -88,7 +88,7 @@
             <div class="card-body">
                 <p class="login-box-msg">Sign in to start your session</p>
 
-                <form action="" method="POST">
+                <form action="{{route('home.login')}}" method="POST">
                     @csrf
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" name="email" placeholder="Email">
@@ -138,7 +138,7 @@
                     <a href="forgot-password.html">I forgot my password</a>
                 </p>
                 <p class="mb-0">
-                    <a href="{{route('auth.register')}}" class="text-center">Register a new membership</a>
+                    <a href="" class="text-center">Register a new membership</a>
                 </p>
             </div>
 
