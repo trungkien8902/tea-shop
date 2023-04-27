@@ -1,5 +1,5 @@
 @extends('layouts.site')
-@section('title', 'Tin tức')
+@section('title', 'Chi tiết sản phẩm')
 @section('main')
 
 <link rel="stylesheet" href="{{url('assets')}}/css/ChiTietSanPham.css" media="screen">

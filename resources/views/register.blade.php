@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Đăng nhập</title>
+    <title>Đăng ký</title>
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -85,15 +85,24 @@
     <div class="login-box">
 
         <div class="card card-outline card-primary">
-            <div class="card-header text-center">
-                <a href="" class="h1"><b>Đăng nhập</b></a>
-                <!-- <p style="font-size: 20px; margin: 0">(Khách hàng)</p> -->
+            <div class="card-header text-center" style="padding: 20px 0;">
+                <a href="" class="h1"><b>Đăng ký tài khoản</b></a>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Vui lòng đăng nhập để tiếp tục</p>
+                <p class="login-box-msg">Vui lòng điền đầy đủ thông tin</p>
 
-                <form action="{{route('home.login')}}" method="POST">
+                <form action="{{route('home.register')}}" method="POST">
                     @csrf
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="name" placeholder="Name">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+
                     <div class="input-group mb-3">
                         <input type="email" class="form-control" name="email" placeholder="Email">
                         <div class="input-group-append">
@@ -103,58 +112,71 @@
                         </div>
                         <br>
                     </div>
-                    <div style="margin-bottom: 1rem; color:red; font-size: 20px">
+                    <div style="margin-bottom: 1rem; color:red;">
                         @error('email')
                         <small class="help-block">{{$message}}</small>
                         @enderror
                     </div>
-
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" name="password" placeholder="Mật khẩu">
+                        <input type="password" class="form-control" name="password" placeholder="Password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
                     </div>
-                    <div style="margin-bottom: 1rem; color:red; font-size: 20px">
+                    <div style="margin-bottom: 1rem; color:red;">
                         @error('password')
                         <small class="help-block">{{$message}}</small>
                         @enderror
                     </div>
-
-                    <div class="row">
-                        <div class="col-7">
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" name="cf-password" placeholder="Confirm Password">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="address" placeholder="Address">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-map"></span>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="phone" placeholder="Phone">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-phone"></span>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="row" style="padding: 12px 0;">
+                        <div class="col-10">
                             <div class="icheck-primary">
                                 <input type="checkbox" id="remember" name="rmb">
                                 <label for="remember">
-                                    Ghi nhớ
+                                    Tôi đồng ý với các điều khoản
                                 </label>
                             </div>
                         </div>
 
+                        <div class="col-2"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7"></div>
+
                         <div class="col-5">
-                            <button type="submit" style="width:105px; margin-left:20px;"
-                                class="btn btn-primary btn-block">Đăng nhập</button>
+                            <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
                         </div>
 
                     </div>
                 </form>
-                <div class="social-auth-links text-center mt-2 mb-3">
-                    <a href="#" class="btn btn-block btn-primary">
-                        <i class="fab fa-facebook mr-2"></i> Đăng nhập với Facebook
-                    </a>
-                    <a href="#" class="btn btn-block btn-danger">
-                        <i class="fab fa-google-plus mr-2"></i> Đăng nhập với Google+
-                    </a>
-                </div>
-
-                <p class="mb-1">
-                    <a href="forgot-password.html">Quên mật khẩu ?</a>
-                </p>
-                <p class="mb-0">
-                    <a href="{{route('home.register')}}" class="text-center">Đăng ký thành viên mới</a>
-                </p>
             </div>
 
         </div>

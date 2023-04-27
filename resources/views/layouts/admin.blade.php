@@ -9,7 +9,7 @@ $menu = config('menu')
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Manager</title>
+    <title>Hệ thống quản trị</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -23,6 +23,7 @@ $menu = config('menu')
     <link rel="stylesheet" href="{{url('admin_assets')}}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 
     <link rel="stylesheet" href="{{url('admin_assets')}}/dist/css/adminlte.min.css?v=3.2.0">
+    <link rel="icon" href="{{url('assets')}}/images/icon_admin.jpg" type="image/gif" sizes="16x16">
 
     <style>
         .btn-close {
@@ -105,10 +106,10 @@ $menu = config('menu')
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="../../index3.html" class="nav-link">Home</a>
+                    <a href="../../index3.html" class="nav-link">Trang chủ</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="#" class="nav-link">Liên hệ</a>
                 </li>
             </ul>
 
@@ -202,10 +203,10 @@ $menu = config('menu')
                         <!-- <span class="dropdown-item dropdown-header">15 Notifications</span> -->
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> Profile
+                            <i class="fas fa-envelope mr-2"></i> Thông tin các nhân
                         </a>
                         <a href="{{route('logout')}}" id="logout" class="dropdown-item" onclick="return confirm('Bạn có chắc không?')">
-                            <i style="padding-right: 10px;" class="fas fa-user"></i> Logout
+                            <i style="padding-right: 10px;" class="fas fa-user"></i> Đăng xuất
                         </a>
                         <!-- <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item">
@@ -239,7 +240,7 @@ $menu = config('menu')
 
             <a href="#" class="brand-link">
                 <img src="{{url('admin_assets')}}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Xin chào {{Auth::user()->name}}</span>
+                <span class="brand-text font-weight-light">Trang quản trị</span>
             </a>
 
             <div class="sidebar">

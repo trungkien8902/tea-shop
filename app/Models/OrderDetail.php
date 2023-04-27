@@ -9,12 +9,13 @@ class OrderDetail extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
     protected $table = 'order_detail';
 
     protected $filltable = [
         'id_order',
         'id_product',
         'quantity',
-        'price'
+        'total_money'
     ];
 }

@@ -26,7 +26,7 @@ class CartController extends Controller
 
         $cart->add($product);
 
-        return redirect()->route('home.product');
+        return redirect()->route('home.product')->with('success', 'Thêm sản phẩm vào giỏ hàng thành công');
     }
 
     public function remove(CartHelper $cart, $id)
@@ -34,7 +34,7 @@ class CartController extends Controller
 
         $cart->remove($id);
 
-        return redirect()->route('cart');
+        return redirect()->route('cart')->with('success', 'Xóa sản phẩm khỏi giỏ hàng thành công');
     }
 
     public function update(CartHelper $cart, $id)
@@ -42,7 +42,7 @@ class CartController extends Controller
         $quantity = request()->quantity ? request()->quantity : 1;
         $cart->update($id, $quantity);
 
-        return redirect()->route('cart');
+        return redirect()->route('cart')->with('success', 'Cập nhật sản phẩm thành công');
     }
 
     public function clear(CartHelper $cart)
@@ -50,7 +50,7 @@ class CartController extends Controller
 
         $cart->clear();
 
-        return redirect()->route('cart');
+        return redirect()->route('cart')->with('success', 'Xóa giỏ hàng thành công');
     }
 
 }

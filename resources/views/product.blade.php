@@ -1,4 +1,5 @@
 @extends('layouts.site')
+@section('title', 'Sản phẩm')
 @section('main')
 
 
@@ -135,7 +136,7 @@
                         <div class="col-12 col-sm-6 col-lg-4">
                             <div class="single-product-area mb-50">
                                 <div class="product-img">
-                                    <a href="">
+                                    <a href="{{route('home.view', ['id'=>$p->id])}}">
                                         <img height="200px" src="{{$p->image}}" alt="">
                                         <img height="200px" src="upload/{{$p->image}}" alt="">
                                     </a>

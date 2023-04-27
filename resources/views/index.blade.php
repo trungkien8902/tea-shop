@@ -2,13 +2,20 @@
 @section('main')
 
 <!-- links -->
-
+@section('style')
 <style>
+  .u-container-layout .font-gg p{
+    font-family: 'Lato', sans-serif !important;
+  }
   .u-list-item h4:hover{
     color: yellowgreen;
   }
 </style>
 <link rel="stylesheet" href="{{url('assets')}}/css/Home.css" media="screen">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap" rel="stylesheet">
+@stop()
 
 <section  style="top: 90px;" class="u-align-center u-clearfix u-section-1" id="sec-507f">
   <div id="carousel-8627" data-interval="5000" data-u-ride="carousel"
@@ -30,8 +37,8 @@
         <div class="u-container-layout u-container-layout-1">
           <div class="u-container-style u-group u-shape-rectangle u-group-1">
             <div class="u-container-layout u-container-layout-2">
-              <p class="u-align-center u-custom-font u-text u-text-custom-color-4 u-text-1">TRÀ ƯỚP SEN TÂY HỒ</p>
-              <p class="u-align-center u-custom-font u-text u-text-2"> Sự hòa quyện tuyệt vời giữa hương thơm ngan
+              <p class="u-align-center u-custom-font u-text u-text-custom-color-4 u-text-5">TRÀ ƯỚP SEN TÂY HỒ</p>
+              <p class="u-align-center u-custom-font u-text u-text-6"> Sự hòa quyện tuyệt vời giữa hương thơm ngan
                 ngát của <br>sen Bách diệp Hồ Tây và vị đậm đà của trà Tân Cương.
               </p>
               <a href="https://nicepage.com/k/offer-html-templates"
@@ -47,13 +54,12 @@
         <div class="u-container-layout u-container-layout-3">
           <div class="u-container-style u-group u-shape-rectangle u-group-2">
             <div class="u-container-layout u-container-layout-4">
-              <p class="u-align-center u-custom-font u-text u-text-custom-color-4 u-text-3">TRÀ ƯỚP SEN TÂY HỒ</p>
-              <p class="u-align-center u-custom-font u-text u-text-4"> Sự hòa quyện tuyệt vời giữa hương thơm ngan
+              <p class="u-align-center u-custom-font u-text u-text-custom-color-4 u-text-5">TRÀ ƯỚP SEN TÂY HỒ</p>
+              <p class="u-align-center u-custom-font u-text u-text-6"> Sự hòa quyện tuyệt vời giữa hương thơm ngan
                 ngát của <br>sen Bách diệp Hồ Tây và vị đậm đà của trà Tân Cương.
               </p>
-              <a href="https://nicepage.com/k/offer-html-templates"
-                class="u-align-center u-border-none u-btn u-button-style u-custom-color-2 u-custom-font u-hover-palette-1-dark-1 u-btn-2">Thử
-                Ngay<span style="font-weight: 400;"></span>
+              <a href="https://nicepage.com/k/offer-html-templates" class="u-align-center u-border-none u-btn u-button-style u-custom-color-2 u-custom-font u-hover-palette-1-dark-1 u-btn-2">
+                <span style="font-weight: 400;">Thử Ngay</span>
               </a>
             </div>
           </div>

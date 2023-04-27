@@ -1,10 +1,10 @@
 @extends('layouts.admin')
-@section('title', 'Category List')
+@section('title', 'Danh sách danh mục')
 @section('main')
 
 <form action="" class="form-inline">
     <div class="form-group">
-        <input name="key" type="text" class="form-control" id="" placeholder="Search By Name...">
+        <input name="key" type="text" class="form-control" id="" placeholder="Tìm kiếm...">
     </div>
 
     <button type="submit" class="btn btn-primary">
@@ -15,12 +15,12 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Total Product</th>
-            <th>Status</th>
-            <th>Created Date</th>
-            <th class="text-right">Action</th>
+            <th>Mã</th>
+            <th>Tên danh mục</th>
+            <th>Tổng số sản phẩm</th>
+            <th>Trạng thái</th>
+            <th>Ngày tạo</th>
+            <th class="text-right">Thao tác</th>
         </tr>
     </thead>
     <tbody>
@@ -31,9 +31,9 @@
             <td>{{$cate->product->count()}}</td>
             <td>
                 @if($cate->is_active == 0)
-                <span class="badge badge-danger">Private</span>
+                <span class="badge badge-danger">Ẩn</span>
                 @else
-                <span class="badge badge-success">Publish</span>
+                <span class="badge badge-success">Hiển thị</span>
                 @endif
             </td>
             <td>{{$cate->created_at}}</td>

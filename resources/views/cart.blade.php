@@ -1,4 +1,5 @@
 @extends('layouts.site')
+@section('title', 'Giỏ hàng')
 @section('main')
 
 <div class="container" style="height: 800px; padding-top: 160px;">
@@ -39,6 +40,14 @@
             </tr>
         </tbody>
     </table>
+    <div class="panel-footer">
+        <hr>
+        <div class="text-right">
+            <a href="{{route('home.product')}}" class="btn btn-primary">Tiếp tục mua hàng</a>
+            <a href="{{route('cart.clear')}}" class="btn btn-danger">Xóa hết</a>
+            <a href="{{route('checkout')}}" class="btn btn-success">Đặt hàng</a>
+        </div>
+    </div>
 </div>
 
 @stop

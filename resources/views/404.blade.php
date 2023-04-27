@@ -1,5 +1,5 @@
 @extends('layouts.site')
-@section('title', 'Giới thiệu')
+@section('title', '404 not found')
 @section('main')
 
 <div class="jumbotron">

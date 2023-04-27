@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use App\Helper\CartHelper;
+use App\Models\Category;
+use App\Models\Order;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,7 +25,9 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('*', function($view) {
             $view->with([
-                'cart' => new CartHelper()
+                'category' => Category::where('is_active', 1)->orderBy('name', 'ASC')->get(),
+                'cart' => new CartHelper(),
+                'order_count' => Order::where('status', 0)->count()
             ]);
         });
         Paginator::useBootstrap();

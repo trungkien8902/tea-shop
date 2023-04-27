@@ -6,6 +6,11 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\CustomerRegister;
+use App\Models\Customer;
+use Mail;
+
+
 
 
 class HomeController extends Controller
@@ -44,6 +49,18 @@ class HomeController extends Controller
     {
         return view('about');
     }
+    
+    public function register(){
+        return view('register');
+    }
+    
+    public function post_register(Request $request){
+        // $validate = $request->validated();
+        if(Customer::create($request->all())) {
+            return redirect()->route('home.login')->with('success', 'Đăng ký thành công');
+        }
+    }
+
 
     public function login()
     {
@@ -85,6 +102,20 @@ class HomeController extends Controller
     public function contact()
     {
         return view('contact');
+    }
+
+    public function post_contact(Requset $req)
+    {
+        Mail::send('mail.contact', [
+            'name' => $req->name,
+            'content' => $reg->content,
+
+        ], function($message) use($req) {
+            $message->to('trungkienlx02@gmail.com', $req->name);
+            $message->from($req->email);
+            $message->subject('Test Email');
+        });
+        return redirect()->route('home.index');
     }
 
     public function product_detail()

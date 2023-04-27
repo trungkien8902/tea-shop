@@ -9,18 +9,21 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
     protected $table = 'order';
 
     protected $filltable = [
-        'id_order',
-        'order_date',
-        'id_customer',
         'notes',
         'name_reciver',
         'address',
         'email',
-        'phone'
+        'phone',
+        'status'
     ];
+
+    public function cus() {
+        return $this->hasOne(Customer::class, 'id', 'id_category');
+    }
 
     // JOIN 1-n
     public function details()

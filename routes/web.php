@@ -22,16 +22,26 @@ Route::get('/product', 'App\Http\Controllers\HomeController@product' ) -> name('
 Route::get('/about', 'App\Http\Controllers\HomeController@about' ) -> name('home.about');
 Route::get('/news', 'App\Http\Controllers\HomeController@news' ) -> name('home.news');
 Route::get('/contact', 'App\Http\Controllers\HomeController@contact' ) -> name('home.contact');
+Route::post('/contact', 'App\Http\Controllers\HomeController@post_contact') -> name('home.contact');
 Route::get('/product_detail/{id}', 'App\Http\Controllers\HomeController@view' ) -> name('home.view');
 Route::get('/login', 'App\Http\Controllers\HomeController@login') -> name('home.login');
 Route::post('/login', 'App\Http\Controllers\HomeController@post_login') -> name('home.login');
 Route::get('/logout', 'App\Http\Controllers\HomeController@logout') -> name('home.logout');
+Route::get('/register', 'App\Http\Controllers\HomeController@register') -> name('home.register');
+Route::post('/register', 'App\Http\Controllers\HomeController@post_register') -> name('home.register');
 Route::get('/cart', 'App\Http\Controllers\CartController@view') -> name('cart');
+Route::post('/cart', 'App\Http\Controllers\CartController@clear') -> name('cart.clear');
 
+
+Route::group(['prefix' => 'checkout'], function() {
+    Route::get('/','App\Http\Controllers\CheckoutController@form') -> name('checkout');
+    Route::post('/','App\Http\Controllers\CheckoutController@submit_form') -> name('checkout.submit_form');
+    Route::get('/checkout-success','App\Http\Controllers\CheckoutController@success') -> name('checkout.success');
+});
 
 
 Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\Admin' ,'middleware' => 'auth'], function(){
-    Route::get('/', 'App\Http\Controllers\Admin\AdminController@dashboard') -> name('admin.dashboard');
+    Route::get('/', 'App\Http\Controllers\Admin\AdminController@index') -> name('admin.index');
     Route::get('/logout', 'App\Http\Controllers\Admin\AdminController@logout') -> name('logout');
 
     Route::resources([

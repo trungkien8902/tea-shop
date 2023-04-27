@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Customer extends Authenticatable
 {
     use HasFactory;
-    // protected $guarded = ['id'];
+    protected $guarded = ['id'];
     protected $table = 'customer';
     protected $filltable = [
         'name',
@@ -22,20 +22,11 @@ class Customer extends Authenticatable
 
     // JOIN 1 - 1
 
-    // // JOIN 1-n
-    // public function orders()
-    // {
-    //     return $this->hasMany(Order::class, 'id_customer', 'id');
-    // }
+    public function order_list() {
+        return $this->hasMany(Order::class, 'id_customer', 'id');
+    }
 
-    //Thêm localScope
-    // public function scopeSearch($query)
-    // {
-    //     if($key = request()->key) {
-    //         $query = $query->where('name', 'like', '%'.$key.'%');
-    //     }
-    //     return $query;
-    // }
+
     protected $hidden = [
         'password',
         'remember_reset_tokens',

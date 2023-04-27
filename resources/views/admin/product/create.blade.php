@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', 'Add Product')
+@section('title', 'Thêm sản phẩm')
 @section('main')
 
 <form method="POST" action="{{route('product.store')}}" enctype="multipart/form-data">
@@ -8,23 +8,23 @@
     <div class="row">
         <div class="col-md-9">
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" name="name" placeholder="Input your name">
+                <label for="name">Tên sản phẩm</label>
+                <input type="text" class="form-control" name="name" placeholder="Nhập tên sản phẩm">
                 @error('name')
                 <small class="help-block">{{$message}}</small>
                 @enderror
             </div>
             <div class="form-group">
-                <label for="description">Description</label>
-                <textarea type="text" class="form-control" rows="4" cols="50" name="description" placeholder="Input description"></textarea>
+                <label for="description">Mô tả sản phẩm</label>
+                <textarea type="text" class="form-control" rows="4" cols="50" name="description" placeholder="Nhập mô tả sản phẩm"></textarea>
                 @error('name')
                 <small class="help-block">{{$message}}</small>
                 @enderror
             </div>
 
             <div class="form-group">
-                <label for="content">Content</label>
-                <textarea type="text" class="form-control" rows="4" cols="50" name="contents" placeholder="Input content"></textarea>
+                <label for="content">Nội dung</label>
+                <textarea type="text" class="form-control" rows="4" cols="50" name="contents" placeholder="Nhập nội dung"></textarea>
                 @error('name')
                 <small class="help-block">{{$message}}</small>
                 @enderror
@@ -32,14 +32,14 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <label for="description">Image</label>
+                <label for="description">Ảnh</label>
                 <input type="file" class="form-control" name="file_upload" placeholder="Upload image"></input>
                 @error('name')
                 <small class="help-block">{{$message}}</small>
                 @enderror
             </div>
             <div class="form-group">
-                <label for="id_category">Category</label>
+                <label for="id_category">Thể loại</label>
 
                 <select name="id_category" class="form-select">
                     <option value="">--SELECT ONE--</option>
@@ -53,29 +53,29 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="price">Price</label>
-                <input type="text" class="form-control" name="price" placeholder="Input price">
+                <label for="price">Giá</label>
+                <input type="text" class="form-control" name="price" placeholder="Nhập giá">
                 @error('name')
                 <small class="help-block">{{$message}}</small>
                 @enderror
             </div>
             <div class="form-group">
-                <label for="price">Quantity</label>
-                <input type="number" class="form-control" name="quantity" placeholder="Input quantity">
+                <label for="price">Số lượng</label>
+                <input type="number" class="form-control" name="quantity" placeholder="Nhập số lượng">
                 @error('name')
                 <small class="help-block">{{$message}}</small>
                 @enderror
             </div>
             <div class="form-group">
-                <label for="name">Status</label>
+                <label for="name">Trạng thái</label>
                 <div class="radio">
                     <label for="status">
                         <input type="radio" name="status" value="1" checked>
-                        Publish
+                        Hiển thị
                     </label>
                     <label for="status">
                         <input type="radio" name="status" value="0">
-                        Private
+                        Ẩn
                     </label>
                 </div>
             </div>

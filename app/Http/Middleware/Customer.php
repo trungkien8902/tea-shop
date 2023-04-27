@@ -27,6 +27,6 @@ class Customer
             return $next($request);
         }
 
-        return redirect()->route('home')->with('error', 'Bạn cần phải đăng nhập');
+        return redirect()->route('home.index')->with('error', 'Bạn cần phải đăng nhập');
     }
 }
