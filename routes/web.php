@@ -19,11 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\HomeController@index' ) -> name('home.index');
 Route::get('/home', 'App\Http\Controllers\HomeController@index' ) -> name('home.index');
 Route::get('/product', 'App\Http\Controllers\HomeController@product' ) -> name('home.product');
+Route::get('/category{id}', 'App\Http\Controllers\HomeController@view' ) -> name('home.view');
 Route::get('/about', 'App\Http\Controllers\HomeController@about' ) -> name('home.about');
 Route::get('/news', 'App\Http\Controllers\HomeController@news' ) -> name('home.news');
 Route::get('/contact', 'App\Http\Controllers\HomeController@contact' ) -> name('home.contact');
 Route::post('/contact', 'App\Http\Controllers\HomeController@post_contact') -> name('home.contact');
-Route::get('/product_detail/{id}', 'App\Http\Controllers\HomeController@view' ) -> name('home.view');
 Route::get('/login', 'App\Http\Controllers\HomeController@login') -> name('home.login');
 Route::post('/login', 'App\Http\Controllers\HomeController@post_login') -> name('home.login');
 Route::get('/logout', 'App\Http\Controllers\HomeController@logout') -> name('home.logout');
@@ -48,7 +48,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\Admin' ,
         'user' => 'App\Http\Controllers\Admin\UserController',
         'category' => 'App\Http\Controllers\Admin\CategoryController',
         'product' => 'App\Http\Controllers\Admin\ProductController',
-        'blog' => 'App\Http\Controllers\Admin\BlogController',
+        'news' => 'App\Http\Controllers\Admin\NewsController',
         'order' => 'App\Http\Controllers\Admin\OrderController'
     ]);
 });

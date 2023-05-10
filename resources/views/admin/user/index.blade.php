@@ -1,10 +1,10 @@
 @extends('layouts.admin')
-@section('title', 'Danh sách sản phẩm')
+@section('title', 'Danh sách tài khoản')
 @section('main')
 
 <form action="" class="form-inline">
     <div class="form-group">
-        <input name="key" type="text" class="form-control" id="" placeholder="Tìm kiếm...">
+        <input name="key" type="text" class="form-control" id="" placeholder="Search By Name...">
     </div>
 
     <button type="submit" class="btn btn-primary">
@@ -15,14 +15,11 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>Mã</th>
-            <th>Tên sản phẩm</th>
-            <th>Ảnh</th>
-            <th>Giá</th>
-            <th>Thể loại</th>
-            <th>Trạng thái</th>
+            <th>ID</th>
+            <th>Tên</th>
+            <th>Email</th>
             <th>Ngày tạo</th>
-            <th class="text-right">Thao tác</th>
+            <th class="text-right">Hành động</th>
         </tr>
     </thead>
     <tbody>
@@ -30,24 +27,13 @@
         <tr>
             <td>{{$model->id}}</td>
             <td>{{$model->name}}</td>
-            <td>
-                <img height="100px" src="{{url('upload')}}/{{$model->image}}" alt="product">
-            </td>
-            <td>{{$model->price}}. VND</td>
-            <td>{{$model->cate->name}}</td>
-            <td>
-                @if($model->is_active == 0)
-                    <span class="badge badge-danger">Ẩn</span>
-                @else
-                    <span class="badge badge-success">Hiển thị</span>
-                @endif
-            </td>
+            <td>{{$model->email}}</td>
             <td>{{$model->created_at}}</td>
             <td class="text-right">
-                <a href="{{route('product.edit', $model->id)}}" class="btn btn-sm btn-success">
+                <a href="{{route('user.edit', $model->id)}}" class="btn btn-sm btn-success">
                     <i class="fas fa-edit"></i>
                 </a>
-                <a href="{{route('product.destroy', $model->id)}}" class="btn btn-sm btn-danger btn-delete">
+                <a href="{{route('user.destroy', $model->id)}}" class="btn btn-sm btn-danger btn-delete">
                     <i class="fas fa-trash"></i>
                 </a>
             </td>

@@ -12,11 +12,11 @@
             'icon' => 'fa-user',
             'items' => [
                 [
-                    'label' => 'All User',
+                    'label' => 'Tất cả người dùng',
                     'route' => 'user.index'
                 ],
                 [
-                    'label' => 'Add User',
+                    'label' => 'Thêm người dùng',
                     'route' => 'user.create'
                 ]
             ]
@@ -53,16 +53,16 @@
         ],
         [
             'label' => 'Quản lý bài viết',
-            'route' => 'blog.index',
+            'route' => 'news.index',
             'icon' => 'fa-newspaper',
             'items' => [
                 [
                     'label' => 'Tất cả bài viết',
-                    'route' => 'blog.index'
+                    'route' => 'news.index'
                 ],
                 [
                     'label' => 'Thêm bài viết',
-                    'route' => 'blog.create'
+                    'route' => 'news.create'
                 ]
             ]
         ]

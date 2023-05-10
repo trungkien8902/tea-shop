@@ -5,12 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\News;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CustomerRegister;
 use App\Models\Customer;
 use Mail;
-
-
 
 
 class HomeController extends Controller
@@ -35,7 +34,7 @@ class HomeController extends Controller
         $product = Product::where('id', $id)->first();
         $category = Category::where('is_active', 1)->orderBy('name', 'ASC')->get();
         if($model) {
-            return view('product', ['model' => $model, 'category' => $category]);
+            return view('product_forcate', ['model' => $model, 'category' => $category]);
         }
         else if($product) {
             return view('product_detail', ['model' => $product, 'category' => $category]);
@@ -96,7 +95,14 @@ class HomeController extends Controller
 
     public function news()
     {
-        return view('news');
+        $news = News::where('is_active', 1)->orderBy('id', 'ASC')->paginate(10);
+        return view('news', compact('news'));
+    }
+
+    public function news_detail()
+    {
+        $news = News::orderBy('id', 'DESC')->paginate(10);
+        return view('news_detail', compact('news'));
     }
 
     public function contact()

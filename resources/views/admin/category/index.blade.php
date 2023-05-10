@@ -69,18 +69,17 @@
         var _href = $(this).attr('href');
         $('form#form-delete').attr('action', _href);
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Bạn có chắc muốn xóa không?',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            cancelButtonText: 'Hủy',
+            confirmButtonText: 'Xóa'
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
+                    'Xóa thành công!',
                     'success'
                 )
                 $('form#form-delete').submit();

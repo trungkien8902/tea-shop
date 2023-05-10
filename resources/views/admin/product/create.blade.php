@@ -32,8 +32,8 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <label for="description">Ảnh</label>
-                <input type="file" class="form-control" name="file_upload" placeholder="Upload image"></input>
+                <label for="image">Ảnh</label>
+                <input type="file" class="form-control" name="file_upload" placeholder="Tải ảnh lên"></input>
                 @error('name')
                 <small class="help-block">{{$message}}</small>
                 @enderror

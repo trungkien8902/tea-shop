@@ -132,7 +132,7 @@
                     <div class="row" id="list-product">
 
                         <!-- Single Product Area -->
-                        @foreach($product as $p)
+                        @foreach($model -> product as $p)
                         <div class="col-12 col-sm-6 col-lg-4">
                             <div class="single-product-area mb-50">
                                 <div class="product-img">

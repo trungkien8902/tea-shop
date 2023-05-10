@@ -343,7 +343,7 @@ $menu = config('menu')
             <div class="float-right d-none d-sm-block">
                 <b>Version</b> 3.2.0
             </div>
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> Custom by <a target="_blank" href="https://www.facebook.com/trungkien.8902/">Tran Trung Kien</a>
         </footer>
 
         <aside class="control-sidebar control-sidebar-dark">
