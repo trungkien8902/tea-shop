@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Models\Order;
 use App\Models\Customer;
 use App\Models\OrderDetail;
+use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
@@ -63,8 +64,7 @@ class CheckoutController extends Controller
             session(['cart' => '']);
             return redirect()->route('checkout.success')->with('success', 'Đặt hàng thành công');
         } else {
-            return redirect()->route()->back()->with('error', 'Đặt hàng không thành công');
-
+            return redirect()->back()->with('error', 'Đặt hàng không thành công');
         }
 
 

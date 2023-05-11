@@ -69,7 +69,7 @@
 
                 <div class="small-box bg-danger">
                     <div class="inner">
-                        <h3>65</h3>
+                        <h3>{{$cus_count}}</h3>
                         <p>Khách hàng ghé qua</p>
                     </div>
                     <div class="icon">

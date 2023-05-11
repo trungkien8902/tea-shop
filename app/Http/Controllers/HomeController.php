@@ -110,11 +110,11 @@ class HomeController extends Controller
         return view('contact');
     }
 
-    public function post_contact(Requset $req)
+    public function post_contact(Request $req)
     {
         Mail::send('mail.contact', [
             'name' => $req->name,
-            'content' => $reg->content,
+            'content' => $req->content,
 
         ], function($message) use($req) {
             $message->to('trungkienlx02@gmail.com', $req->name);

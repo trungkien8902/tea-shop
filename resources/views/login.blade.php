@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{{url('admin_assets')}}/plugins/fontawesome-free/css/all.min.css">
 
     <link rel="stylesheet" href="{{url('admin_assets')}}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="icon" href="{{url('assets')}}/images/icon_home.png" type="image/gif" sizes="16x16">
+
 
     <link rel="stylesheet" href="{{url('admin_assets')}}/dist/css/adminlte.min.css?v=3.2.0">
     <script nonce="8849584f-3cb9-47c5-bd58-a09f583e12ac">

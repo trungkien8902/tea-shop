@@ -3,7 +3,7 @@ namespace App\Helper;
 
 class CartHelper
 {
-    public $item = [];
+    public $items = [];
     public $total_quality = 0;
     public $total_price = 0;
 

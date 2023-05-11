@@ -20,6 +20,14 @@ class Customer extends Authenticatable
         'phone', 
     ];
 
+    public function scopeSearch($query)
+    {
+        if($key = request()->key) {
+            $query = $query->where('name', 'like', '%'.$key.'%');
+        }
+        return $query;
+    }
+
     // JOIN 1 - 1
 
     public function order_list() {

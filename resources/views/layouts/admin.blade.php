@@ -23,7 +23,7 @@ $menu = config('menu')
     <link rel="stylesheet" href="{{url('admin_assets')}}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 
     <link rel="stylesheet" href="{{url('admin_assets')}}/dist/css/adminlte.min.css?v=3.2.0">
-    <link rel="icon" href="{{url('assets')}}/images/icon_admin.jpg" type="image/gif" sizes="16x16">
+    <link rel="icon" href="{{url('assets')}}/images/logo.png" type="image/gif" sizes="16x16">
 
     <style>
         .btn-close {

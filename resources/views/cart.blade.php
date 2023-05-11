@@ -47,6 +47,11 @@
             <a href="{{route('cart.clear')}}" class="btn btn-danger">Xóa hết</a>
             <a href="{{route('checkout')}}" class="btn btn-success">Đặt hàng</a>
         </div>
+        <div>
+            @error('error')
+            <small class="help-block">{{$message}}</small>
+            @enderror
+        </div>
     </div>
 </div>
 

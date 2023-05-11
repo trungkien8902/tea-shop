@@ -47,4 +47,12 @@ class User extends Authenticatable
     public function getAuthPassword() {
         return bcrypt($this->password);
     }
+    
+    public function scopeSearch($query)
+    {
+        if($key = request()->key) {
+            $query = $query->where('name', 'like', '%'.$key.'%');
+        }
+        return $query;
+    }
 }
